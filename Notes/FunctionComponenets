@@ -1,0 +1,42 @@
+Create new element/ function component
+
+let element =
+  React.createElement(XKCDComic, {
+    path: 'compiling',
+    number: '303',
+    altText:
+      "'Are you stealing those LCDs?' "+
+      "'Yeah, but I'm doing it while my code compiles.'",
+  })
+
+
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+// XKCDComic React Component
+// Steals Randall Munroe's work from xkcd.com
+function XKCDComic(props) {
+  return (
+    <a href={`https://xkcd.com/${props.number}/`}>
+      <img
+        src={`https://imgs.xkcd.com/comics/${props.path}.png`}
+        title={props.altText}
+      />
+    </a>
+  )
+}
+
+ReactDOM.render(
+  // Create an element of type XKCDComic, with the props `path`, `number` and
+  // `altText`.
+  <XKCDComic
+    path='compiling'
+    number='303'
+    altText={
+      "'Are you stealing those LCDs?' "+
+      "'Yeah, but I'm doing it while my code compiles.'"
+    }
+  />,
+  document.getElementById('root')
+)
